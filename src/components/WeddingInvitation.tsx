@@ -85,7 +85,7 @@ export default function WeddingInvitation() {
       {/* Hero Section */}
       <section className={`relative h-screen flex items-end justify-center overflow-hidden transition-opacity duration-1000 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-white/95 z-10"></div>
-        <div className="absolute inset-0 bg-[url('header.webp')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 bg-[url('https://undangan.pamarta.com/header.webp')] bg-cover bg-center"></div>
 
         <div className="relative z-20 text-center px-6 pb-16">
           <h1 className="font-serif text-4xl md:text-6xl text-gray-800 mb-4">
