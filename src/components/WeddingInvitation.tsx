@@ -179,7 +179,7 @@ export default function WeddingInvitation() {
       {/* Photo Gallery */}
       <PhotoGallery />
 
-      {/* Event Details */}
+      {/* Event Deaatails */}
       <section className="py-16 px-6 bg-gradient-to-b from-white to-rose-50">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
@@ -304,18 +304,15 @@ export default function WeddingInvitation() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+    
             {/* Guest Item 1 */}
             <div className="group bg-white rounded-2xl shadow-lg p-8 text-center transform hover:scale-105 transition-all duration-300 border border-rose-100 hover:border-rose-300">
-              <h2 className="font-serif text-xl text-gray-800 mb-2">Hendarsam Marantoko SH,MH</h2>
+              <h2 className="font-serif text-lg text-gray-800 mb-2">No 1, Hendarsam Marantoko SH,MH</h2>
+               <h2 className="font-serif text-lg text-gray-800 mb-2">No 2, Media INISIATOR GROUP</h2>
             </div>
 
-            {/* Guest Item 2 */}
-            <div className="group bg-white rounded-2xl shadow-lg p-8 text-center transform hover:scale-105 transition-all duration-300 border border-rose-100 hover:border-rose-300">
-              <h2 className="font-serif text-xl text-gray-800 mb-2">Media INISIATOR GROUP</h2>
-
-            </div>
-          </div>
+           
+         
         </div>
       </section>
 
