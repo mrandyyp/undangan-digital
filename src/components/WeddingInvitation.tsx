@@ -41,7 +41,7 @@ export default function WeddingInvitation() {
   if (!isOpen) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-rose-400 via-rose-500 to-rose-600 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/foto/hero.jpg')] bg-cover bg-center opacity-20"></div>
+        <div className="absolute inset-0 bg-[url('https://undangan.pamarta.com/hero.jpg')] bg-cover bg-center opacity-20"></div>
 
         <div className={`relative z-10 text-center px-6 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="mb-8">
