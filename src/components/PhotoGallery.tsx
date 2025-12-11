@@ -1,10 +1,9 @@
 const photos = [
   '/foto/galeri/1.webp',
-  '/foto/galeri/foto-2.jpg',
-  '/foto/galeri/foto-3.jpg',
-  '/foto/galeri/foto-4.jpg',
-  '/foto/galeri/foto-5.jpg',
-  '/foto/galeri/foto-6.jpg',
+  '/foto/galeri/2.webp',
+  '/foto/galeri/3.webp',
+  '/foto/galeri/4.webp',
+  '/foto/galeri/5.webp',
 ];
 
 export default function PhotoGallery() {
