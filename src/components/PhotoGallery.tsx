@@ -1,5 +1,5 @@
 const photos = [
-  '/foto/galeri/foto-1.jpg',
+  '/foto/galeri/1.webp',
   '/foto/galeri/foto-2.jpg',
   '/foto/galeri/foto-3.jpg',
   '/foto/galeri/foto-4.jpg',
