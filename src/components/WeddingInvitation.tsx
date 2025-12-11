@@ -41,7 +41,7 @@ export default function WeddingInvitation() {
   if (!isOpen) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-rose-400 via-rose-500 to-rose-600 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://undangan.pamarta.com/hero.jpg')] bg-cover bg-center opacity-20"></div>
+        <div className="absolute inset-0 bg-[url('hero.jpg')] bg-cover bg-center opacity-20"></div>
 
         <div className={`relative z-10 text-center px-6 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="mb-8">
@@ -85,7 +85,7 @@ export default function WeddingInvitation() {
       {/* Hero Section */}
       <section className={`relative h-screen flex items-end justify-center overflow-hidden transition-opacity duration-1000 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-white/95 z-10"></div>
-        <div className="absolute inset-0 bg-[url('https://undangan.pamarta.com/header.webp')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 bg-[url('header.webp')] bg-cover bg-center"></div>
 
         <div className="relative z-20 text-center px-6 pb-16">
           <h1 className="font-serif text-4xl md:text-6xl text-gray-800 mb-4">
@@ -263,7 +263,7 @@ export default function WeddingInvitation() {
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
           <div className="aspect-video">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63455.12345678901!2d105.12345678901234!3d-5.12345678901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMDcnMjQuNCJTIDEwNcKwMDcnMjQuNCJF!5e0!3m2!1sen!2sid!4v1234567890123!5m2!1sen!2sid"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.4827493847564!2d105.27409207499632!3d-5.352994935367688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40dafc7bb0d4f9%3A0x5d7f0f0f0f0f0f0!2sinisiatornews!5e0!3m2!1sen!2sid!4v1654321098765!5m2!1sen!2sid"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -274,7 +274,7 @@ export default function WeddingInvitation() {
           </div>
           <div className="p-6 text-center">
             <a
-              href="https://maps.app.goo.gl/1MWwrQKMWsFE2rbC7"
+              href="https://www.google.com/maps/search/inisiatornews/@-5.35299491882324,105.276298522949,17z"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-rose-500 hover:bg-rose-600 text-white font-medium py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all inline-flex items-center gap-2"
@@ -287,17 +287,34 @@ export default function WeddingInvitation() {
       </section>
 
       {/* Special Guests */}
-      <section className="py-16 px-6 bg-gradient-to-b from-rose-50 to-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="font-serif text-3xl text-gray-800 mb-2">Turut Mengundang</h2>
-            <div className="w-20 h-1 bg-rose-500 mx-auto rounded-full"></div>
+      <section className="py-16 px-6 bg-gradient-to-b from-rose-50 to-white relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-0 left-0 w-64 h-64 bg-rose-200/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-rose-300/20 rounded-full blur-3xl"></div>
+
+        <div className="max-w-4xl mx-auto relative z-10">
+          <div className="text-center mb-12">
+            <div className="inline-block">
+              <h2 className="font-serif text-3xl md:text-4xl text-gray-800 mb-3">Turut Mengundang</h2>
+              <div className="flex items-center justify-center gap-2">
+                <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-rose-400"></div>
+                <Heart className="w-4 h-4 text-rose-500 fill-rose-500" />
+                <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-rose-400"></div>
+              </div>
+            </div>
           </div>
-          <div className="bg-white rounded-2xl shadow-lg p-8">
-            <ul className="text-center space-y-3 text-gray-700">
-              <li className="font-medium">Hendarsam Marantoko Inisiator Group</li>
-              <li className="font-medium">Keluarga Besar Kedua Mempelai</li>
-            </ul>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Guest Item 1 */}
+            <div className="group bg-white rounded-2xl shadow-lg p-8 text-center transform hover:scale-105 transition-all duration-300 border border-rose-100 hover:border-rose-300">
+              <h2 className="font-serif text-xl text-gray-800 mb-2">Hendarsam Marantoko SH,MH</h2>
+            </div>
+
+            {/* Guest Item 2 */}
+            <div className="group bg-white rounded-2xl shadow-lg p-8 text-center transform hover:scale-105 transition-all duration-300 border border-rose-100 hover:border-rose-300">
+              <h2 className="font-serif text-xl text-gray-800 mb-2">Media INISIATOR GROUP</h2>
+
+            </div>
           </div>
         </div>
       </section>
