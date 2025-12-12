@@ -7,7 +7,6 @@ const photos = [
   '/foto/galeri/3.webp',
   '/foto/galeri/4.webp',
   '/foto/galeri/5.webp',
-  '/foto/galeri/6.webp',
 ];
 
 export default function PhotoGallery() {
