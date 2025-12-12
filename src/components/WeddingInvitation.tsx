@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Heart, MapPin, Calendar, Clock, User, Users, Mail } from 'lucide-react';
+import { Heart, MapPin, Calendar, Clock, User, Users, Mail, Copy, Check } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import PhotoGallery from './PhotoGallery';
 import CountdownTimer from './CountdownTimer';
@@ -11,6 +11,7 @@ export default function WeddingInvitation() {
   const { guestName } = useParams<{ guestName: string }>();
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [copiedAccount, setCopiedAccount] = useState<string | null>(null);
 
   const formatGuestName = (name: string | undefined) => {
     if (!name) return 'Tamu Undangan';
@@ -26,6 +27,16 @@ export default function WeddingInvitation() {
     setMounted(true);
   }, []);
 
+  const copyAccountNumber = async (accountNumber: string, bankName: string) => {
+    try {
+      await navigator.clipboard.writeText(accountNumber);
+      setCopiedAccount(bankName);
+      setTimeout(() => setCopiedAccount(null), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
+
   const addToCalendar = () => {
     const title = 'Resepsi Pernikahan Pian & Sintia';
     const description = 'Resepsi Pernikahan Sofyan Dwi Cahyo (Pian) & Sintia Diah Pitaloka (Sintia)';
@@ -40,7 +51,7 @@ export default function WeddingInvitation() {
 
   if (!isOpen) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-rose-400 via-rose-500 to-rose-600 flex items-center justify-center overflow-hidden">
+      <div className="min-h-screen bg-gradient-to-br from-rose-400 via-rose-500 to-rose-600 flex items-center justify-center overflow-hidden max-w-[800px] mx-auto relative">
         <div className="absolute inset-0 bg-[url('https://undangan.pamarta.com/header.webp')] bg-cover bg-center opacity-20"></div>
 
         <div className={`relative z-10 text-center px-6 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -78,7 +89,7 @@ export default function WeddingInvitation() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-rose-50 via-white to-rose-50">
+    <div className="min-h-screen bg-gradient-to-b from-rose-50 via-white to-rose-50 max-w-[800px] mx-auto">
       {/* Music Player */}
       <MusicPlayer autoplay={true} />
 
@@ -179,7 +190,7 @@ export default function WeddingInvitation() {
       {/* Photo Gallery */}
       <PhotoGallery />
 
-      {/* Event Deaatails */}
+      {/* Event Details */}
       <section className="py-16 px-6 bg-gradient-to-b from-white to-rose-50">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
@@ -304,15 +315,104 @@ export default function WeddingInvitation() {
             </div>
           </div>
 
-    
+          <div className="grid md:grid-cols-2 gap-6">
             {/* Guest Item 1 */}
             <div className="group bg-white rounded-2xl shadow-lg p-8 text-center transform hover:scale-105 transition-all duration-300 border border-rose-100 hover:border-rose-300">
-              <h2 className="font-serif text-lg text-gray-800 mb-2">No 1, Hendarsam Marantoko SH,MH</h2>
-               <h2 className="font-serif text-lg text-gray-800 mb-2">No 2, Media INISIATOR GROUP</h2>
+              <h2 className="font-serif text-xl text-gray-800 mb-2">Hendarsam Marantoko SH,MH</h2>
             </div>
 
-           
-         
+            {/* Guest Item 2 */}
+            <div className="group bg-white rounded-2xl shadow-lg p-8 text-center transform hover:scale-105 transition-all duration-300 border border-rose-100 hover:border-rose-300">
+              <h2 className="font-serif text-xl text-gray-800 mb-2">Media INISIATOR GROUP</h2>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Digital Gift Section */}
+      <section className="py-16 px-3 bg-gradient-to-b from-white to-rose-50 relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-rose-200/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-rose-300/20 rounded-full blur-3xl"></div>
+
+        <div className="max-w-4xl mx-auto relative z-10">
+          <div className="text-center mb-12">
+            <div className="inline-block">
+              <h2 className="font-serif text-3xl md:text-4xl text-gray-800 mb-3">Kirim Kado Digital</h2>
+              <div className="flex items-center justify-center gap-2">
+                <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-rose-400"></div>
+                <Heart className="w-4 h-4 text-rose-500 fill-rose-500" />
+                <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-rose-400"></div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg mb-8 border border-rose-100">
+            <p className="text-gray-700 text-center leading-relaxed mb-8">
+              Terima kasih atas doa dan restu yang telah anda berikan, jika anda ingin mengirimkan kado digital, silahkan kirim dengan cara dibawah ini. Sebelumnya, sebelumnya kami mengucapkan banyak-banyak terima kasih.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* BRI Account */}
+              <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border border-blue-200">
+                <div className="text-center mb-4">
+                  <h3 className="font-bold text-xl text-blue-900 mb-1">BRI</h3>
+                  <p className="text-gray-700 font-medium">Sofyan Dwi Cahyo</p>
+                </div>
+                <div className="bg-white rounded-lg p-4 mb-3">
+                  <p className="text-center font-mono text-lg font-semibold text-gray-800">
+                    559801007607502
+                  </p>
+                </div>
+                <button
+                  onClick={() => copyAccountNumber('559801007607502', 'BRI')}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transform hover:scale-105 transition-all inline-flex items-center justify-center gap-2"
+                >
+                  {copiedAccount === 'BRI' ? (
+                    <>
+                      <Check className="w-5 h-5" />
+                      Tersalin!
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-5 h-5" />
+                      Salin Rekening
+                    </>
+                  )}
+                </button>
+              </div>
+
+              {/* BCA Account */}
+              <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl p-6 border border-indigo-200">
+                <div className="text-center mb-4">
+                  <h3 className="font-bold text-xl text-indigo-900 mb-1">BCA</h3>
+                  <p className="text-gray-700 font-medium">Sintia Diah Pitaloka</p>
+                </div>
+                <div className="bg-white rounded-lg p-4 mb-3">
+                  <p className="text-center font-mono text-lg font-semibold text-gray-800">
+                    2920827627
+                  </p>
+                </div>
+                <button
+                  onClick={() => copyAccountNumber('2920827627', 'BCA')}
+                  className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transform hover:scale-105 transition-all inline-flex items-center justify-center gap-2"
+                >
+                  {copiedAccount === 'BCA' ? (
+                    <>
+                      <Check className="w-5 h-5" />
+                      Tersalin!
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-5 h-5" />
+                      Salin Rekening
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
